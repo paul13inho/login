@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get("/", [GeneralController::class, "home"])->name("home");
-Route::get("terms", [GeneralController::class, "terms"])->name("terms");
+Route::get("/", [GeneralController::class, "home"])->name("login");
+Route::post('/login', [GeneralController::class, "login"])->name('home.login');
+Route::get('/logout', [GeneralController::class, 'logout']);
+
+Route::get("terms", [GeneralController::class, "terms"])->name("terms")->middleware('auth');
+Route::get("dashboard", [GeneralController::class, "dashboard"])->name('dashboard')->middleware('auth');

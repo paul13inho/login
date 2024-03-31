@@ -1,3 +1,3 @@
-<header class="bg-red-500 text-center font-extrabold text-white">
+<header class="bg-green-500 text-center font-extrabold text-white">
     Header
 </header>
