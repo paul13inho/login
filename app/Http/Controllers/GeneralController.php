@@ -19,7 +19,7 @@ class GeneralController extends Controller
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->intended('/terms');
+            return redirect()->intended('/dashboard');
         } else {
             return redirect()->back()->withErrors([
                 'email' => 'Invalid email or password.',
@@ -47,6 +47,13 @@ class GeneralController extends Controller
         return view('terms', ['user' => $user]);
     }
 
+
+//    USER PAGE
+    public function userIndex(){
+        $user = Auth::user();
+
+        return view('user', ['user' => $user]);
+    }
 
 
 

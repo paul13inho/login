@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::get("/terms", [GeneralController::class, "terms"])->name("terms");
+    Route::get("/dashboard", [GeneralController::class, "dashboard"])->name('dashboard');
+    Route::get('/user', [GeneralController::class, 'userIndex'])->name('user-index');
+});
+
 Route::get("/", [GeneralController::class, "home"])->name("login");
 Route::post('/login', [GeneralController::class, "login"])->name('home.login');
-Route::get('/logout', [GeneralController::class, 'logout']);
-
-Route::get("terms", [GeneralController::class, "terms"])->name("terms")->middleware('auth');
-Route::get("dashboard", [GeneralController::class, "dashboard"])->name('dashboard')->middleware('auth');
+Route::get('/logout', [GeneralController::class, 'logout'])->name('logout');
