@@ -1,5 +1,5 @@
 <nav class="bg-gray-900 p-4 flex justify-between items-center">
-    <p class="text-white">Welcome, {{ $user->email }}</p>
+    <p class="text-white">Welcome, {{ $user->name }}</p>
 
     <div class="space-x-2">
 
